@@ -81,12 +81,135 @@ function initPortfolio() {
   const projectModalTitle = document.querySelector("#projectModalTitle");
   const projectModalDescription = document.querySelector("#projectModalDescription");
   const projectCodeLink = document.querySelector(".project-code-link");
+  const skillStack = document.querySelector(".skill-stack");
+  const toolkitSlider = document.querySelector(".toolkit-slider");
 
   const roles = ["Web Developer", "Frontend Builder", "UI Enthusiast"];
   let roleIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
   let lastFocusedProject = null;
+
+  function setupSkillStack(stack) {
+    const stage = stack?.querySelector(".skill-stack-stage");
+    const cards = [...(stage?.querySelectorAll(".core-skill-card") || [])];
+    if (!stage || cards.length < 2) return;
+
+    let progress = 0;
+    let startX = 0;
+    let startProgress = 0;
+    let isDragging = false;
+
+    const clamp = (value) => Math.max(0, Math.min(1, value));
+
+    const updateStack = () => {
+      const stageWidth = stage.clientWidth;
+      if (!stageWidth) return;
+
+      const cardWidth = Math.max(170, Math.min(290, (stageWidth - 54) / cards.length));
+      const collapsedGap = Math.min(26, cardWidth * 0.12);
+      const expandedGap = Math.max(0, (stageWidth - cardWidth) / (cards.length - 1));
+
+      cards.forEach((card, index) => {
+        const collapsedLeft = index * collapsedGap;
+        const expandedLeft = index * expandedGap;
+        card.style.width = `${cardWidth}px`;
+        card.style.left = `${collapsedLeft + (expandedLeft - collapsedLeft) * progress}px`;
+      });
+
+      stack.setAttribute("aria-valuenow", String(Math.round(progress * 100)));
+      stack.setAttribute("aria-valuetext", `${Math.round(progress * 100)}% expanded`);
+    };
+
+    const setProgress = (nextProgress) => {
+      progress = clamp(nextProgress);
+      updateStack();
+    };
+
+    stage.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+
+      isDragging = true;
+      startX = event.clientX;
+      startProgress = progress;
+      stack.classList.add("is-dragging");
+      stage.setPointerCapture?.(event.pointerId);
+    });
+
+    stage.addEventListener("pointermove", (event) => {
+      if (!isDragging) return;
+      setProgress(startProgress + (event.clientX - startX) / Math.min(stage.clientWidth * 0.55, 360));
+    });
+
+    const stopDragging = (event) => {
+      if (!isDragging) return;
+      isDragging = false;
+      stack.classList.remove("is-dragging");
+      stage.releasePointerCapture?.(event.pointerId);
+    };
+
+    stage.addEventListener("pointerup", stopDragging);
+    stage.addEventListener("pointercancel", stopDragging);
+
+    stack.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        setProgress(progress + 0.2);
+      }
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        setProgress(progress - 0.2);
+      }
+    });
+
+    const resizeObserver = new ResizeObserver(updateStack);
+    resizeObserver.observe(stage);
+    updateStack();
+  }
+
+  setupSkillStack(skillStack);
+
+  function setupToolkitSlider(slider) {
+    if (!slider) return;
+
+    let startX = 0;
+    let startScrollLeft = 0;
+    let isDragging = false;
+
+    slider.addEventListener("wheel", (event) => {
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      slider.scrollLeft += event.deltaY;
+      event.preventDefault();
+    }, { passive: false });
+
+    slider.addEventListener("pointerdown", (event) => {
+      if (event.pointerType !== "mouse" || event.button !== 0) return;
+
+      isDragging = true;
+      startX = event.clientX;
+      startScrollLeft = slider.scrollLeft;
+      slider.classList.add("is-dragging");
+      slider.setPointerCapture?.(event.pointerId);
+    });
+
+    slider.addEventListener("pointermove", (event) => {
+      if (!isDragging) return;
+      slider.scrollLeft = startScrollLeft - (event.clientX - startX);
+    });
+
+    const stopDragging = (event) => {
+      if (!isDragging) return;
+      isDragging = false;
+      slider.classList.remove("is-dragging");
+      slider.releasePointerCapture?.(event.pointerId);
+    };
+
+    slider.addEventListener("pointerup", stopDragging);
+    slider.addEventListener("pointercancel", stopDragging);
+  }
+
+  setupToolkitSlider(toolkitSlider);
 
   menuToggle?.addEventListener("click", () => {
     if (window.matchMedia("(max-width: 991.98px)").matches) {
