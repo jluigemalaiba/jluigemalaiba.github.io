@@ -1649,24 +1649,36 @@ h2 span {
 .project-banner.wellness,
 .project-modal-banner.wellness {
   background: linear-gradient(135deg, #d6efe5, #8ec9b4 55%, #4e8d73);
+  background-image: url('../assets/wellness-banner.png');
+  background-size: cover;
+  background-position: center;
   color: #175747;
 }
 
 .project-banner.clicket,
 .project-modal-banner.clicket {
   background: linear-gradient(135deg, #fff4f4, #ffd6d9 55%, #eb4a5b);
+  background-image: url('../assets/clicket-banner.png');
+  background-size: cover;
+  background-position: center;
   color: #b91832;
 }
 
 .project-banner.pupdash,
 .project-modal-banner.pupdash {
   background: linear-gradient(135deg, #7bd7f5, #3a9fd2 56%, #1d5c89);
+  background-image: url('../assets/pupdash-banner.png');
+  background-size: cover;
+  background-position: center;
   color: #fff3bf;
 }
 
 .project-banner.apexgear,
 .project-modal-banner.apexgear {
   background: linear-gradient(135deg, #071d65, #1744bd 58%, #0cc5ef);
+  background-image: url('../assets/apexgear-banner.png');
+  background-size: cover;
+  background-position: center;
   color: #ffffff;
 }
 
