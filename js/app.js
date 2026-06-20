@@ -106,7 +106,10 @@ function initPortfolio() {
       const stageWidth = stage.clientWidth;
       if (!stageWidth) return;
 
-      const cardWidth = Math.max(170, Math.min(290, (stageWidth - 54) / cards.length));
+      const isCompact = stageWidth < 640;
+      const cardWidth = isCompact
+        ? Math.min(Math.max(120, stageWidth - 16), 190)
+        : Math.min(290, Math.max(170, (stageWidth - 54) / cards.length));
       const collapsedGap = Math.min(26, cardWidth * 0.12);
       const expandedGap = Math.max(0, (stageWidth - cardWidth) / (cards.length - 1));
 

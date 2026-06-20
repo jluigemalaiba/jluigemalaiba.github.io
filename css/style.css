@@ -438,8 +438,13 @@ body.nav-collapsed.nav-scrolled .site-footer {
   border: 1px solid rgba(89, 200, 232, 0.34);
   border-radius: 4px;
   background: rgba(89, 200, 232, 0.08);
-  font-size: 0.82rem;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
   font-weight: 800;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.intro-tag:hover {
+  transform: rotate(-4deg) translateY(-2px);
 }
 
 .home-hero-card h1 {
@@ -1020,11 +1025,11 @@ h2 span {
 }
 
 .about-photo-left img {
-  transform: scale(1.06) translateX(-4%);
+  transform: scale(1.22) translateX(-3%);
 }
 
 .about-photo-right img {
-  transform: scale(1.12) translateX(8%);
+  transform: scale(1.24) translateX(3%);
 }
 
 .about-photo:hover {
@@ -1033,20 +1038,20 @@ h2 span {
 }
 
 .about-photo-left:hover {
-  transform: rotate(-1.5deg) translateY(-5px);
+  transform: rotate(-0.75deg) translateY(-4px);
 }
 
 .about-photo-right:hover {
-  transform: rotate(1.5deg) translateY(-5px);
+  transform: rotate(0.75deg) translateY(-4px);
 }
 
 .about-photo-left:hover img {
-  transform: scale(1.11) translateX(-4%);
+  transform: scale(1.28) translateX(-3%);
   filter: saturate(0.96) contrast(1.06);
 }
 
 .about-photo-right:hover img {
-  transform: scale(1.17) translateX(8%);
+  transform: scale(1.3) translateX(3%);
   filter: saturate(0.96) contrast(1.06);
 }
 
@@ -1433,6 +1438,11 @@ h2 span {
 .core-skill-card i {
   color: var(--blue-2);
   font-size: 1.65rem;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.core-skill-card:hover i {
+  transform: rotate(-10deg) scale(1.08);
 }
 
 .core-skill-card strong {
@@ -1537,7 +1547,7 @@ h2 span {
 }
 
 .skill-logo-card:hover .skill-logo {
-  transform: scale(1.1);
+  transform: rotate(-7deg) scale(1.1);
 }
 
 .skill-logo-card.python { --toolkit-logo: url("https://cdn.simpleicons.org/python/3776AB"); }
@@ -1568,7 +1578,7 @@ h2 span {
 
 .project-track {
   display: grid;
-  grid-auto-columns: minmax(310px, 430px);
+  grid-auto-columns: minmax(0, min(430px, calc(100vw - 96px)));
   grid-auto-flow: column;
   gap: 22px;
   overflow-x: auto;
@@ -2037,6 +2047,23 @@ body.animations-ready [data-animate].is-visible {
     margin: 0 0 28px;
   }
 
+  .about-photo img {
+    transform-origin: center;
+  }
+
+  .about-photo {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .about-photo-left img {
+    transform: scale(1.22) translateX(-3%);
+  }
+
+  .about-photo-right img {
+    transform: scale(1.24) translateX(3%);
+  }
+
   .core-skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2179,7 +2206,7 @@ body.animations-ready [data-animate].is-visible {
   }
 
   .project-track {
-    grid-auto-columns: minmax(280px, 86vw);
+    grid-auto-columns: minmax(0, calc(100vw - 72px));
   }
 
   .about-section,
@@ -2219,8 +2246,30 @@ body.animations-ready [data-animate].is-visible {
     min-height: 220px;
   }
 
+  .about-photo {
+    width: 100%;
+    margin-left: 0;
+    border-radius: 18px;
+  }
+
   .core-skill-card {
     min-height: 0;
+  }
+
+  .skill-stack-stage {
+    min-height: 238px;
+  }
+
+  .core-skill-card {
+    padding: 18px;
+  }
+
+  .core-skill-card strong {
+    font-size: 0.9rem;
+  }
+
+  .core-skill-card span {
+    font-size: 0.82rem;
   }
 
   .content-wrap {
@@ -2349,7 +2398,7 @@ body.animations-ready [data-animate].is-visible {
   }
 
   .project-track {
-    grid-auto-columns: minmax(250px, 88vw);
+    grid-auto-columns: minmax(0, calc(100vw - 52px));
   }
 
   .project-banner,
