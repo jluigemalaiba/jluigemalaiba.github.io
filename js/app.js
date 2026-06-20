@@ -101,8 +101,17 @@ function initPortfolio() {
     let isDragging = false;
 
     const clamp = (value) => Math.max(0, Math.min(1, value));
+    const isMobileLayout = () => window.matchMedia("(max-width: 640px)").matches;
 
     const updateStack = () => {
+      if (isMobileLayout()) {
+        cards.forEach((card) => {
+          card.style.width = "";
+          card.style.left = "";
+        });
+        return;
+      }
+
       const stageWidth = stage.clientWidth;
       if (!stageWidth) return;
 
@@ -130,6 +139,7 @@ function initPortfolio() {
     };
 
     stage.addEventListener("pointerdown", (event) => {
+      if (isMobileLayout()) return;
       if (event.pointerType === "mouse" && event.button !== 0) return;
 
       isDragging = true;

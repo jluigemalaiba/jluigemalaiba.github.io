@@ -1474,6 +1474,31 @@ h2 span {
   font-size: 1.25rem;
 }
 
+@media (max-width: 640px) {
+  .skill-stack-stage {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: auto;
+    overflow: visible;
+    cursor: default;
+    touch-action: auto;
+  }
+
+  .core-skill-card {
+    position: relative;
+    top: auto;
+    width: 100% !important;
+    left: auto !important;
+    min-height: 0;
+  }
+
+  .skill-stack-hint {
+    display: none;
+  }
+}
+
 .toolkit-heading {
   max-width: 1120px;
   margin-bottom: 24px;
