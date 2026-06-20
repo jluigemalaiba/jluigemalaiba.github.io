@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Source+Sans+3:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="css/style.css?v=46">
+    <link rel="stylesheet" href="css/style.css?v=47">
     <script src="js/app.js?v=38" defer></script>
   </head>
   <body>
@@ -178,6 +178,16 @@
           <div class="row justify-content-center">
             <div class="col-xl-9">
               <div class="timeline">
+                  <article class="timeline-card" data-animate>
+                  <div class="timeline-icon"><i class="bi bi-award"></i></div>
+                  <div>
+                    <p class="timeline-date">Ongoing</p>
+                    <span class="pill">Self Learning</span>
+                    <h3>Frontend Practice &amp; Portfolio Builds</h3>
+                    <p>Improving through hands-on layouts, Bootstrap pages, JavaScript interactions, and responsive interface experiments.</p>
+                  </div>
+                </article>
+
                 <article class="timeline-card" data-animate>
                   <div class="timeline-icon"><i class="bi bi-mortarboard"></i></div>
                   <div>
@@ -195,14 +205,35 @@
                 </article>
 
                 <article class="timeline-card" data-animate>
-                  <div class="timeline-icon"><i class="bi bi-award"></i></div>
+                  <div class="timeline-icon"><i class="bi bi-code-slash"></i></div>
                   <div>
-                    <p class="timeline-date">Ongoing</p>
-                    <span class="pill">Self Learning</span>
-                    <h3>Frontend Practice &amp; Portfolio Builds</h3>
-                    <p>Improving through hands-on layouts, Bootstrap pages, JavaScript interactions, and responsive interface experiments.</p>
+                    <p class="timeline-date">2022 - 2024</p>
+                    <span class="pill">Senior High School</span>
+                    <h3>Science, Technology, Engineering, and Mathematics Strand</h3>
+                    <p class="school"><i class="bi bi-building"></i> Tanauan Institute Inc.</p>
+                    <p>Learned basic coding terminology and programming fundamentals, including introductory document-based coding activities and essential HTML tags.</p>
+                    <div class="tag-list">
+                      <span>Coding Fundamentals</span>
+                      <span>Basic HTML Tags</span>
+                    </div>
                   </div>
                 </article>
+
+                <article class="timeline-card" data-animate>
+                  <div class="timeline-icon"><i class="bi bi-tools"></i></div>
+                  <div>
+                    <p class="timeline-date">2018 - 2022</p>
+                    <span class="pill">Junior High School</span>
+                    <h3>Junior High School Education</h3>
+                    <p class="school"><i class="bi bi-building"></i> Santa Anastacia - San Rafael National High School</p>
+                    <p>Gained experience in drafting and organizing hardware related to technology, building practical familiarity with technical tools and equipment.</p>
+                    <div class="tag-list">
+                      <span>Drafting</span>
+                      <span>Hardware Basics</span>
+                    </div>
+                  </div>
+                </article>
+
               </div>
             </div>
           </div>
@@ -213,29 +244,29 @@
         <div class="container-fluid content-wrap">
           <div class="works-heading-wrap">
             <div class="section-heading" data-animate>
-              <p class="kicker">Portfolio</p>
-              <h2>Sample <span>Works</span></h2>
+              <p class="kicker">Works</p>
+              <h2>My <span>Projects</span></h2>
             </div>
           </div>
 
           <div class="project-carousel" data-animate>
             <button class="carousel-control prev" type="button" aria-label="Previous project"><i class="bi bi-chevron-left"></i></button>
             <div class="project-track" tabindex="0" aria-label="Project carousel">
-              <article class="project-card" tabindex="0" role="button" data-title="Portfolio Landing Page" data-code="https://github.com/" data-banner="portfolio" data-description="A personal landing page concept with responsive sections, clear typography, animated content reveals, and a focused visual identity.">
-                <div class="project-banner portfolio" aria-hidden="true"><i class="bi bi-window"></i></div>
-                <div class="project-body"><h3>Portfolio Landing Page</h3><p>A responsive personal site with clear typography, section-based storytelling, and calm blue branding.</p></div>
+              <article class="project-card" tabindex="0" role="button" data-title="Well, Well, Wellness" data-code="https://github.com/" data-banner="wellness" data-description="A C# health and wellness application designed to support a balanced lifestyle through accessible wellness-focused features.">
+                <div class="project-banner wellness" aria-hidden="true"><i class="bi bi-heart-pulse"></i></div>
+                <div class="project-body"><h3>Well, Well, Wellness</h3><p>A C# application focused on health and wellness</p></div>
               </article>
-              <article class="project-card" tabindex="0" role="button" data-title="Business Website" data-code="https://github.com/" data-banner="business" data-description="A clean business website structure for presenting services, feature highlights, call-to-action sections, and contact information.">
-                <div class="project-banner business" aria-hidden="true"><i class="bi bi-shop-window"></i></div>
-                <div class="project-body"><h3>Business Website</h3><p>A compact service-site concept with cards, CTA areas, and a simple customer contact flow.</p></div>
+              <article class="project-card" tabindex="0" role="button" data-title="ClicKet" data-code="https://github.com/" data-banner="clicket" data-description="A ticketing reservation system for events, designed to make event discovery, reservations, and ticket access easier for users.">
+                <div class="project-banner clicket" aria-hidden="true"><i class="bi bi-ticket-perforated"></i></div>
+                <div class="project-body"><h3>ClicKet</h3><p>A ticketing reservation system for events</p></div>
               </article>
-              <article class="project-card" tabindex="0" role="button" data-title="Mobile UI Concept" data-code="https://github.com/" data-banner="mobile" data-description="A responsive interface study focused on compact navigation, readable content grouping, balanced touch targets, and clean visual hierarchy.">
-                <div class="project-banner mobile" aria-hidden="true"><i class="bi bi-phone"></i></div>
-                <div class="project-body"><h3>Mobile UI Concept</h3><p>A responsive UI study focused on compact navigation, spacing, and readable content hierarchy.</p></div>
+              <article class="project-card" tabindex="0" role="button" data-title="PUP Dash" data-code="https://github.com/" data-banner="pupdash" data-description="A Python-based game inspired by PUP, combining campus-inspired visuals with an engaging dash-style game concept.">
+                <div class="project-banner pupdash" aria-hidden="true"><i class="bi bi-joystick"></i></div>
+                <div class="project-body"><h3>PUP Dash</h3><p>A Python-based game inspired by PUP</p></div>
               </article>
-              <article class="project-card" tabindex="0" role="button" data-title="Dashboard Interface" data-code="https://github.com/" data-banner="dashboard" data-description="A dashboard interface concept for organizing metrics, recent activity, and key actions in a calm layout.">
-                <div class="project-banner dashboard" aria-hidden="true"><i class="bi bi-speedometer2"></i></div>
-                <div class="project-body"><h3>Dashboard Interface</h3><p>A polished dashboard concept for metrics, activity, and focused action areas.</p></div>
+              <article class="project-card" tabindex="0" role="button" data-title="ApeX Gear" data-code="https://github.com/" data-banner="apexgear" data-description="An e-commerce website that sells technology-based accessories through a polished online storefront experience.">
+                <div class="project-banner apexgear" aria-hidden="true"><i class="bi bi-laptop"></i></div>
+                <div class="project-body"><h3>ApeX Gear</h3><p>An e-commerce website for tech-based accessories</p></div>
               </article>
             </div>
             <button class="carousel-control next" type="button" aria-label="Next project"><i class="bi bi-chevron-right"></i></button>
