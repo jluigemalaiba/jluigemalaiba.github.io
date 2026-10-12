@@ -1768,7 +1768,7 @@ h2 span {
 .project-banner.wellness,
 .project-modal-banner.wellness {
   background: linear-gradient(135deg, #d6efe5, #8ec9b4 55%, #4e8d73);
-  background-image: url('../assets/wellness-banner.png');
+  background-image: url('../assets/well-banner.png');
   background-size: cover;
   background-position: center;
   color: #175747;
