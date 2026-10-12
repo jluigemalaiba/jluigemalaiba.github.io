@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Source+Sans+3:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="css/style.css?v=47">
-    <script src="js/app.js?v=38" defer></script>
+    <link rel="stylesheet" href="css/style.css?v=53">
+    <script src="js/app.js?v=40" defer></script>
   </head>
   <body>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
@@ -36,6 +36,7 @@
         <a class="nav-link" href="#about"><i class="bi bi-person"></i><span>About</span></a>
         <a class="nav-link" href="#skills"><i class="bi bi-stars"></i><span>Skills</span></a>
         <a class="nav-link" href="#education"><i class="bi bi-mortarboard"></i><span>Education</span></a>
+        <a class="nav-link" href="#webdev"><i class="bi bi-code-slash"></i><span>Web Development</span></a>
         <a class="nav-link" href="#works"><i class="bi bi-window-stack"></i><span>Projects</span></a>
         <a class="nav-link" href="#contact"><i class="bi bi-send"></i><span>Contact</span></a>
       </nav>
@@ -240,6 +241,30 @@
         </div>
       </section>
 
+      <section class="webdev-section section-panel" id="webdev">
+        <div class="container-fluid content-wrap">
+          <div class="works-heading-wrap">
+            <div class="section-heading" data-animate>
+              <p class="kicker">Web Development</p>
+              <h2>Activities</h2>
+            </div>
+          </div>
+
+          <div class="project-carousel webdev-carousel" data-animate>
+            <div class="project-track" tabindex="0" aria-label="Web development activities">
+              <article class="project-card activity-card" tabindex="0" role="button" data-title="Activity 1: Bento Grid Layout Website" data-code="#" data-cta="View Activity" data-banner="bento-grid" data-description="A responsive website layout built with Bootstrap's grid system.">
+                <div class="project-banner bento-grid" aria-hidden="true"><i class="bi bi-grid-1x2-fill"></i></div>
+                <div class="project-body"><h3>Activity 1: Bento Grid Layout Website</h3><p>A responsive website layout built with Bootstrap's grid system.</p></div>
+              </article>
+              <article class="project-card project-card-placeholder" aria-label="More activities to come">
+                <div class="project-banner placeholder-banner" aria-hidden="true"><i class="bi bi-plus-lg"></i></div>
+                <div class="project-body"><h3>More Activities to Come</h3><p>New web development activities will be added here.</p></div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="works-section section-panel" id="works">
         <div class="container-fluid content-wrap">
           <div class="works-heading-wrap">
@@ -250,11 +275,10 @@
           </div>
 
           <div class="project-carousel" data-animate>
-            <button class="carousel-control prev" type="button" aria-label="Previous project"><i class="bi bi-chevron-left"></i></button>
             <div class="project-track" tabindex="0" aria-label="Project carousel">
-              <article class="project-card" tabindex="0" role="button" data-title="Well, Well, Wellness" data-code="https://github.com/jluigemalaiba/Well-Well-Wellness...-App-" data-banner="wellness" data-description="A C# health and wellness application designed to support a balanced lifestyle through accessible wellness-focused features.">
+              <article class="project-card" tabindex="0" role="button" data-title="Well, Well, Wellness" data-code="https://github.com/jluigemalaiba/Well-Well-Wellness...-App-" data-banner="wellness" data-description="A C++ health and wellness application designed to support a balanced lifestyle through accessible wellness-focused features.">
                 <div class="project-banner wellness" aria-hidden="true"></div>
-                <div class="project-body"><h3>Well, Well, Wellness</h3><p>A C# application focused on health and wellness</p></div>
+                <div class="project-body"><h3>Well, Well, Wellness</h3><p>A C++ application focused on health and wellness</p></div>
               </article>
               <article class="project-card" tabindex="0" role="button" data-title="ClicKet" data-code="https://github.com/jluigemalaiba/ClicKet" data-banner="clicket" data-description="A ticketing reservation system for events, designed to make event discovery, reservations, and ticket access easier for users.">
                 <div class="project-banner clicket" aria-hidden="true"></div>
@@ -268,8 +292,11 @@
                 <div class="project-banner apexgear" aria-hidden="true"></div>
                 <div class="project-body"><h3>ApeX Gear</h3><p>An e-commerce website for tech-based accessories</p></div>
               </article>
+              <article class="project-card project-card-placeholder" aria-label="More projects to come">
+                <div class="project-banner placeholder-banner" aria-hidden="true"><i class="bi bi-plus-lg"></i></div>
+                <div class="project-body"><h3>More Projects to Come</h3><p>New projects will be added here.</p></div>
+              </article>
             </div>
-            <button class="carousel-control next" type="button" aria-label="Next project"><i class="bi bi-chevron-right"></i></button>
           </div>
         </div>
       </section>
@@ -314,7 +341,7 @@
           <div class="project-modal-content">
             <h3 id="projectModalTitle"></h3>
             <p id="projectModalDescription"></p>
-            <a class="btn-primary-blue project-code-link" href="#" target="_blank" rel="noopener">View Code</a>
+            <a class="btn-primary-blue project-code-link" href="#" target="_blank" rel="noopener">View Project</a>
           </div>
         </div>
       </div>
@@ -330,6 +357,7 @@
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
           <a href="#education">Education</a>
+          <a href="#webdev">Web Development</a>
           <a href="#works">Projects</a>
           <a href="#contact">Contact</a>
         </nav>

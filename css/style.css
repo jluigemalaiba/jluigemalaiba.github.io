@@ -94,7 +94,8 @@ img {
   flex-direction: column;
   max-width: 100vw;
   border-radius: 0;
-  transition: top 520ms cubic-bezier(0.22, 1, 0.36, 1), left 520ms cubic-bezier(0.22, 1, 0.36, 1), width 520ms cubic-bezier(0.22, 1, 0.36, 1), height 520ms cubic-bezier(0.22, 1, 0.36, 1), padding 520ms cubic-bezier(0.22, 1, 0.36, 1), border-radius 520ms cubic-bezier(0.22, 1, 0.36, 1), transform 520ms cubic-bezier(0.22, 1, 0.36, 1), background 520ms ease, border-color 520ms ease, box-shadow 520ms ease;
+  transition: top 360ms cubic-bezier(0.22, 1, 0.36, 1), left 360ms cubic-bezier(0.22, 1, 0.36, 1), width 360ms cubic-bezier(0.22, 1, 0.36, 1), height 360ms cubic-bezier(0.22, 1, 0.36, 1), padding 360ms cubic-bezier(0.22, 1, 0.36, 1), border-radius 360ms cubic-bezier(0.22, 1, 0.36, 1), transform 360ms cubic-bezier(0.22, 1, 0.36, 1), background 360ms ease, border-color 360ms ease, box-shadow 360ms ease;
+  will-change: width, padding, transform;
 }
 
 .nav-close {
@@ -160,6 +161,25 @@ img {
   margin-top: 0;
   align-items: center;
   transform: translateY(-50%);
+  scrollbar-width: none;
+}
+
+.nav-menu::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-height: 760px) and (min-width: 992px) {
+  .nav-menu {
+    gap: 4px;
+    max-height: calc(100dvh - 118px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 4px 0;
+  }
+
+  .nav-link {
+    min-height: 42px;
+  }
 }
 
 .nav-link {
@@ -225,7 +245,8 @@ body:not(.nav-collapsed) .nav-link:hover i {
 .site-shell {
   margin-left: var(--nav-width);
   width: calc(100% - var(--nav-width));
-  transition: margin-left 260ms ease;
+  transition: margin-left 360ms cubic-bezier(0.22, 1, 0.36, 1), width 360ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: margin-left, width;
   min-width: 0;
   max-width: 100vw;
 }
@@ -255,11 +276,14 @@ body.nav-collapsed .nav-footer {
 }
 
 body.nav-collapsed .nav-menu {
-  position: static;
-  width: 100%;
-  margin: auto 0;
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  left: 12px;
+  width: auto;
+  margin: 0;
   justify-content: center;
-  transform: none;
+  transform: translateY(-50%);
 }
 
 body.nav-collapsed .nav-link {
@@ -286,7 +310,7 @@ body.nav-collapsed.nav-scrolled .side-nav {
   left: 18px;
   width: 68px;
   height: min(420px, calc(100dvh - 36px));
-  padding: 36px 11px 12px;
+  padding: 22px 11px 10px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: rgba(5, 8, 13, 0.78);
@@ -303,8 +327,8 @@ body.nav-collapsed.nav-scrolled .brand {
 }
 
 body.nav-collapsed.nav-scrolled .brand img {
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
 }
 
 body.nav-collapsed.nav-scrolled .brand span {
@@ -319,13 +343,13 @@ body.nav-collapsed.nav-scrolled .nav-close {
 }
 
 body.nav-collapsed.nav-scrolled .nav-menu {
-  gap: 6px;
-  margin: auto 0;
+  gap: 4px;
+  margin: 0;
 }
 
 body.nav-collapsed.nav-scrolled .nav-link {
   width: 46px;
-  min-height: 46px;
+  min-height: 40px;
 }
 
 body.nav-collapsed.nav-scrolled .site-shell {
@@ -390,6 +414,12 @@ body.nav-collapsed.nav-scrolled .site-footer {
   padding-right: 0;
   padding-left: 0;
   overflow: visible;
+}
+
+.webdev-section .content-wrap {
+  max-width: none;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .works-heading-wrap {
@@ -885,6 +915,7 @@ h2 span {
 .about-section,
 .skills-section,
 .education-section,
+.webdev-section,
 .works-section,
 .contact-section {
   min-height: 100vh;
@@ -1592,21 +1623,24 @@ h2 span {
 
 .project-carousel {
   position: relative;
-  display: grid;
-  grid-template-columns: 54px minmax(0, 1fr) 54px;
+  display: flex;
   align-items: center;
-  gap: 12px;
   width: 100%;
   min-width: 0;
-  padding: 0 clamp(14px, 2.4vw, 34px);
+  padding: 0 clamp(34px, 4vw, 56px);
+}
+
+.carousel-control {
+  flex: 0 0 auto;
 }
 
 .project-track {
+  flex: 1 1 0%;
   display: grid;
-  grid-auto-columns: minmax(0, min(430px, calc(100vw - 96px)));
+  grid-auto-columns: var(--project-card-width, minmax(260px, calc((100% - 66px) / 4)));
   grid-auto-flow: column;
   gap: 22px;
-  overflow-x: auto;
+  overflow-x: scroll;
   min-width: 0;
   max-width: 100%;
   contain: inline-size;
@@ -1614,7 +1648,38 @@ h2 span {
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
-  scrollbar-color: rgba(85, 212, 255, 0.45) rgba(85, 212, 255, 0.08);
+  scrollbar-color: rgba(85, 212, 255, 0.24) rgba(85, 212, 255, 0.035);
+}
+
+/* Activities only need a scrollbar after their cards exceed the available space. */
+.webdev-carousel .project-track {
+  overflow-x: auto;
+}
+
+@media (min-width: 992px) {
+  /* Keep the floating, collapsed navigation from covering the first card. */
+  body.nav-collapsed.nav-scrolled .project-carousel {
+    padding-left: calc(68px + clamp(34px, 4vw, 56px));
+  }
+}
+
+.project-track::-webkit-scrollbar {
+  height: 7px;
+}
+
+.project-track::-webkit-scrollbar-track {
+  background: rgba(85, 212, 255, 0.035);
+}
+
+.project-track::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(85, 212, 255, 0.24);
+}
+
+.project-track::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .project-card {
@@ -1669,6 +1734,35 @@ h2 span {
 .project-banner.dashboard,
 .project-modal-banner.dashboard {
   background: #172637;
+}
+
+.project-card-placeholder {
+  cursor: default;
+  border-style: dashed;
+}
+
+.project-card-placeholder:hover {
+  border-color: var(--line);
+  background: var(--card);
+  transform: none;
+}
+
+.bento-grid {
+  background:
+    linear-gradient(135deg, rgba(85, 212, 255, 0.22), rgba(47, 140, 255, 0.08)),
+    repeating-linear-gradient(90deg, transparent 0 31%, rgba(85, 212, 255, 0.22) 31% 33%, transparent 33% 66%, rgba(85, 212, 255, 0.22) 66% 68%, transparent 68% 100%),
+    repeating-linear-gradient(0deg, transparent 0 45%, rgba(85, 212, 255, 0.22) 45% 48%, transparent 48% 100%),
+    #102235;
+}
+
+.bento-grid i,
+.placeholder-banner i {
+  color: var(--blue-2);
+  font-size: 3.5rem;
+}
+
+.placeholder-banner {
+  background: rgba(85, 212, 255, 0.05);
 }
 
 .project-banner.wellness,
@@ -2258,7 +2352,6 @@ body.animations-ready [data-animate].is-visible {
   }
 
   .project-carousel {
-    grid-template-columns: 1fr;
     padding: 0 18px;
   }
 
@@ -2266,13 +2359,10 @@ body.animations-ready [data-animate].is-visible {
     display: none;
   }
 
-  .project-track {
-    grid-auto-columns: minmax(0, calc(100vw - 72px));
-  }
-
   .about-section,
   .skills-section,
   .education-section,
+  .webdev-section,
   .works-section,
   .contact-section {
     min-height: auto;
@@ -2456,10 +2546,6 @@ body.animations-ready [data-animate].is-visible {
   .timeline::before,
   .timeline-card::before {
     display: none;
-  }
-
-  .project-track {
-    grid-auto-columns: minmax(0, calc(100vw - 52px));
   }
 
   .project-banner,

@@ -3,6 +3,7 @@ const sectionFiles = [
   "about.html",
   "skills.html",
   "education.html",
+  "webdev.html",
   "works.html",
   "contact.html",
 ];
@@ -72,8 +73,8 @@ function initPortfolio() {
   const animatedItems = document.querySelectorAll("[data-animate]");
   const counters = document.querySelectorAll("[data-count]");
   const typeTarget = document.querySelector("#typeTarget");
-  const projectTrack = document.querySelector(".project-track");
-  const projectCards = [...document.querySelectorAll(".project-card")];
+  const projectTracks = [...document.querySelectorAll(".project-track")];
+  const projectCards = [...document.querySelectorAll(".project-card[data-title]")];
   const projectModal = document.querySelector(".project-modal");
   const projectModalDialog = document.querySelector(".project-modal-dialog");
   const projectModalClose = document.querySelector(".project-modal-close");
@@ -224,6 +225,24 @@ function initPortfolio() {
 
   setupToolkitSlider(toolkitSlider);
 
+  function sizeProjectCards() {
+    const isDesktop = window.matchMedia("(min-width: 992px)").matches;
+
+    projectTracks.forEach((track) => {
+      if (!isDesktop) {
+        track.style.removeProperty("--project-card-width");
+        return;
+      }
+
+      const cardWidth = Math.max(0, (track.clientWidth - 66) / 4);
+      track.style.setProperty("--project-card-width", `${cardWidth}px`);
+    });
+  }
+
+  const projectTrackObserver = new ResizeObserver(sizeProjectCards);
+  projectTracks.forEach((track) => projectTrackObserver.observe(track));
+  sizeProjectCards();
+
   menuToggle?.addEventListener("click", () => {
     if (window.matchMedia("(max-width: 991.98px)").matches) {
       document.body.classList.remove("nav-collapsed", "nav-scrolled");
@@ -360,14 +379,6 @@ function initPortfolio() {
 
   typeRole();
 
-  document.querySelector(".carousel-control.prev")?.addEventListener("click", () => {
-    projectTrack?.scrollBy({ left: -projectTrack.clientWidth * 0.86, behavior: "smooth" });
-  });
-
-  document.querySelector(".carousel-control.next")?.addEventListener("click", () => {
-    projectTrack?.scrollBy({ left: projectTrack.clientWidth * 0.86, behavior: "smooth" });
-  });
-
   function openProjectModal(card) {
     if (!projectModal || !projectModalBanner || !projectModalTitle || !projectModalDescription || !projectCodeLink) return;
 
@@ -376,6 +387,7 @@ function initPortfolio() {
     projectModalTitle.textContent = card.dataset.title || "Project";
     projectModalDescription.textContent = card.dataset.description || "";
     projectCodeLink.href = card.dataset.code || "#";
+    projectCodeLink.textContent = card.dataset.cta || "View Project";
     projectModal.classList.add("is-open");
     projectModal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");

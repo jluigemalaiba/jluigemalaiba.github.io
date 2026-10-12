@@ -8,10 +8,6 @@
     </div>
 
     <div class="project-carousel" data-animate>
-      <button class="carousel-control prev" type="button" aria-label="Previous project">
-        <i class="bi bi-chevron-left"></i>
-      </button>
-
       <div class="project-track" tabindex="0" aria-label="Project carousel">
         <article
           class="project-card"
@@ -20,13 +16,13 @@
           data-title="Well, Well, Wellness"
           data-code="https://github.com/"
           data-banner="wellness"
-          data-description="A C# health and wellness application designed to support a balanced lifestyle through accessible wellness-focused features.">
+          data-description="A C++ health and wellness application designed to support a balanced lifestyle through accessible wellness-focused features.">
           <div class="project-banner wellness" aria-hidden="true">
             <i class="bi bi-heart-pulse"></i>
           </div>
           <div class="project-body">
             <h3>Well, Well, Wellness</h3>
-            <p>A C# application focused on health and wellness.</p>
+            <p>A C++ application focused on health and wellness.</p>
           </div>
         </article>
 
@@ -80,11 +76,15 @@
             <p>An e-commerce website for tech-based accessories.</p>
           </div>
         </article>
-      </div>
 
-      <button class="carousel-control next" type="button" aria-label="Next project">
-        <i class="bi bi-chevron-right"></i>
-      </button>
+        <article class="project-card project-card-placeholder" aria-label="More projects to come">
+          <div class="project-banner placeholder-banner" aria-hidden="true"><i class="bi bi-plus-lg"></i></div>
+          <div class="project-body">
+            <h3>More Projects to Come</h3>
+            <p>New projects will be added here.</p>
+          </div>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -99,7 +99,7 @@
       <h3 id="projectModalTitle"></h3>
       <p id="projectModalDescription"></p>
       <a class="btn-primary-blue project-code-link" href="#" target="_blank" rel="noopener">
-        View Code
+        View Project
       </a>
     </div>
   </div>
