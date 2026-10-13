@@ -1765,6 +1765,11 @@ h2 span {
   background: rgba(85, 212, 255, 0.05);
 }
 
+.project-banner.teume,
+.project-modal-banner.teume {
+  background: url('../assets/teume-banner.png') center / cover no-repeat;
+}
+
 .project-banner.wellness,
 .project-modal-banner.wellness {
   background: linear-gradient(135deg, #d6efe5, #8ec9b4 55%, #4e8d73);
@@ -2352,7 +2357,14 @@ body.animations-ready [data-animate].is-visible {
   }
 
   .project-carousel {
-    padding: 0 18px;
+    /* Keep cards and their scrollbar aligned with the section heading on touch layouts. */
+    --carousel-inset: clamp(18px, 5vw, 82px);
+    padding: 0 var(--carousel-inset);
+  }
+
+  .project-track {
+    padding: 6px 0 22px;
+    scroll-padding-inline: 0;
   }
 
   .carousel-control {
