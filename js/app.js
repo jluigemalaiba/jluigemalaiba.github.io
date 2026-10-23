@@ -423,7 +423,7 @@ function initPortfolio() {
     }
 
     if (event.key === "Tab" && projectModal?.classList.contains("is-open") && projectModalDialog) {
-      const focusable = [...projectModalDialog.querySelectorAll("a[href], button:not([disabled])")];
+      const focusable = [...projectModalDialog.querySelectorAll("a[href], button:not([disabled]), [tabindex]:not([tabindex='-1'])")];
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
 
