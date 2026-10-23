@@ -1770,6 +1770,11 @@ h2 span {
   background: url('../assets/teume-banner.png') center / cover no-repeat;
 }
 
+.project-banner.drag-race-simulator,
+.project-modal-banner.drag-race-simulator {
+  background: url('../assets/drag-race-filipinas-simulator-banner.png') center / cover no-repeat;
+}
+
 .project-banner.wellness,
 .project-modal-banner.wellness {
   background: linear-gradient(135deg, #d6efe5, #8ec9b4 55%, #4e8d73);
