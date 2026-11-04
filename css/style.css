@@ -1775,6 +1775,11 @@ h2 span {
   background: url('../assets/drag-race-filipinas-simulator-banner.png') center / cover no-repeat;
 }
 
+.project-banner.atlanac,
+.project-modal-banner.atlanac {
+  background: url('../assets/atlanac.png') center / cover no-repeat;
+}
+
 .project-banner.wellness,
 .project-modal-banner.wellness {
   background: linear-gradient(135deg, #d6efe5, #8ec9b4 55%, #4e8d73);
